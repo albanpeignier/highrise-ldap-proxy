@@ -1,0 +1,23 @@
+Highrise to LDAP Gateway
+=========================
+
+*WARNING:* This was developed as a proof of concept in about 5 hours, so take it with a grain of salt.
+
+Adapted from the ldap-activerecord-server, this application will proxy your Highrise contacts as LDAP entries.  
+Once you have this installed and running on a local server, you can point OS X's Addressbook 
+(or Outlook, Thunderbird, etc.) at it and get autocomplety goodness in your local mail client.
+
+Quickstart:
+
+# Figure out your highrise API url
+  # Click on 'My Info' in Highrise
+  # Click on 'Reveal authentication token for feeds/API' under 'User account'.  
+    That will give you a key like b99531bd29aabd9bc9a09d04a60a97e722414
+  # Combine that with your highrise url like such:
+    http://99531bd29aabd9bc9a09d04a60a97:X@tammersaleh.highrisehq.com/ 
+   (Yes, X.  Those 37signals dudes are wacky)
+# Get the source from http://svn.thoughtbot.com/highrise-ldap-proxy/
+# Install gems : activeresource ruby-ldapserver
+# Create (from sample) and edit the conf/ldap-config.yml file, primarily to set the right Highrise API url
+# run @bin/ldap-server.rb start@ and check the log file for problems.
+
